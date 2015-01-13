@@ -1,0 +1,109 @@
+<div class="page-header">
+
+    <h1>Optimize ngRepeat
+        <span class="lead pull-right" ng-if="repeater.watchers">
+            watchers count:
+            <strong class="label label-danger" ng-bind="repeater.watchers">
+            </strong>
+        </span>
+    </h1>
+
+    <button type="button"
+            ng-click="repeater.countWatchers()"
+            class="btn btn-default">count watchers
+    </button>
+
+</div>
+
+<tabset>
+
+    <tab heading="trackBy">
+        <div class="well-lg">
+            <button class="btn btn-primary" ng-click="repeater.getData()">Get data</button>
+            <button class="btn btn-warning" ng-click="repeater.refreshData()">Refresh data</button>
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>name</th>
+                    <th>phone</th>
+                    <th>email</th>
+                    <th>website</th>
+                    <th>country</th>
+                    <th>city</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr ng-repeat="worker in repeater.workers">
+                    <td>{{ $index }}</td>
+                    <td>{{ worker.name }}</td>
+                    <td>{{ worker.phone }}</td>
+                    <td><span email-to="worker.email"></span></td>
+                    <td>{{ worker.website }}</td>
+                    <td>{{ worker.address.country }}</td>
+                    <td>{{ worker.address.city}}</td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </tab>
+
+    <tab heading="ngIf">
+        <div class="well-lg">
+            <button class="btn btn-primary" ng-click="repeater.getAsyncData()">Get data</button>
+
+            <div class="list-group"
+                 ng-repeat="worker in repeater.asyncWorkers">
+
+                <h4 class="list-group-item-heading">{{ worker.name }}
+                    <button class="btn btn-xs btn-info"
+                            ng-click="workerInfo = !workerInfo">
+                        more info
+                    </button>
+
+                </h4>
+
+                <ul class="list-unstyled" ng-if="workerInfo">
+                    <li>{{ worker.name }}</li>
+                    <li>{{ worker.phone }}</li>
+                    <li><span email-to="worker.email"></span></li>
+                    <li>{{ worker.website }}</li>
+                    <li>{{ worker.address.country }}</li>
+                    <li>{{ worker.address.city}}</li>
+                </ul>
+
+            </div>
+        </div>
+    </tab>
+
+    <tab heading="filtering">
+        <div class="well-lg">
+
+            <button class="btn btn-primary"
+                    ng-click="repeater.getFilterdData()">
+                    Get data
+            </button>
+
+            <div class="well-sm">
+                <input type="text"
+                       class="form-control"
+                       ng-model="query">
+            </div>
+
+            <div class="well-sm">
+                <ul class="list-group">
+                    <li class="list-group-item"
+                        ng-repeat="worker in repeater.filterdWorkers"
+                        ng-show="([worker.name] | filter:query).length"
+                        ng-bind="worker.name">
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </tab>
+</tabset>

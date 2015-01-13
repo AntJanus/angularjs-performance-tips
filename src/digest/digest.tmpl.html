@@ -1,0 +1,95 @@
+<div class="page-header">
+
+    <h1>Optimizing the digest cycle
+            <span class="lead pull-right" ng-if="digest.watchers">
+            watchers count:
+            <strong class="label label-danger" ng-bind="digest.watchers">
+            </strong>
+        </span>
+    </h1>
+
+    <button type="button"
+            ng-click="digest.countWatchers()"
+            class="btn btn-default">
+        count watchers
+    </button>
+
+    <button type="button"
+            ng-click="digest.stopCounter()"
+            class="btn btn-default">
+        reset digest counter
+    </button>
+
+</div>
+
+<div class="row">
+
+    <tabset>
+        <tab heading="ngModel">
+            <div class="well-lg">
+                <form class="form-horizontal">
+                    <div class="col-md-10">
+                        <div class="form-group">
+                            <input type="text"
+                                   ng-model="some.value"
+                                   ng-model-options="digest.getModelOptions()"
+                                   class="form-control input-lg"
+                                   placeholder="type something..">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </tab>
+
+        <tab heading="Dom Manipulation">
+            <div class="well-lg">
+
+                <!-- a panel widget that register watcher on the scope  -->
+                <div class="panel panel-primary">
+                    <div class="panel-heading" ng-click="digest.togglePanel()">I'm the panel heading!</div>
+                    <div class="panel-body" ng-show="digest.panelVisiable">
+                        <p>Should we really need to add watcher just to make this widget work?</p>
+                    </div>
+                </div>
+
+                <!--<panel-widget></panel-widget>-->
+
+            </div>
+        </tab>
+
+        <tab heading="Digest vs apply">
+            <div class="well-lg">
+
+            <h2>Page scope: {{ time | date:'ss' }}</h2>
+
+            <div ng-if="true">
+                <h3>Inner scope: {{ time | date:'ss'}}</h3>
+
+                <div ng-include=" 'partials/digest-buttons.tmpl.html' "></div>
+
+            </div>
+
+            </div>
+        </tab>
+
+        <tab heading="one-time binding">
+            <div class="well well-lg">
+
+                <ul class="list-unstyled" ng-repeat="person in digest.persons">
+                    <li><h2>      {{ person.name }}</h2></li>
+                    <li>username: {{ person.username }}</li>
+                    <li>email:    {{ person.email }}</li>
+                    <li>phone:    {{ person.phone }}</li>
+                    <li>website:  {{ person.website }}</li>
+                    <li>city:     {{ person.address.city }}</li>
+                    <li>state:    {{ person.address.state }}</li>
+                    <li>country:  {{ person.address.country }}</li>
+                    <li>zipcode:  {{ person.address.zipcode }}</li>
+                </ul>
+
+            </div>
+        </tab>
+
+    </tabset>
+
+</div>

@@ -1,0 +1,23 @@
+{
+  "name": "angularjs-performance-tips",
+  "version": "0.1.0",
+  "description": "reference code for the Angularjs-il meetup #9 that took place at google TLV campus @ 13/1/15",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "angularjs",
+    "javascript"
+  ],
+  "author": "Nir Kaufman <Nir@500tech.com>",
+  "license": "MIT",
+  "dependencies": {
+    "faker": "2.1.1",
+    "gulp": "3.8.10",
+    "gulp-concat": "2.4.3",
+    "gulp-html2js": "0.2.0",
+    "gulp-sourcemaps": "1.3.0",
+    "gulp-traceur": "0.14.0"
+  }
+}

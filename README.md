@@ -1,9 +1,10 @@
 AngularJS performance tips
 ===================
 
-#### Nir@500tech.com
+[grab to slides here](http://www.slideshare.net/nirkaufman/angularjs-performance-production-tips)
+
 This is the companion repository for the AngularJS-IL meetup 9 - that took place
-on junuary 13 2015 @ Google campus TLV
+on january 13 2015 @ Google campus TLV
 
 ## running the project
 - run bower & npm

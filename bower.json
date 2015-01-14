@@ -1,21 +1,18 @@
 {
   "name": "angularjs-performance-tips",
-  "version": "0.1.0",
+  "version": "0.1",
+  "homepage": "https://github.com/nirkaufman/angularjs-performance-tips",
   "authors": [
     "nirkaufman <Nir@500tech.com>"
   ],
-  "description": "reference code for the Angularjs-il meetup #9 that took place at google TLV campus @ 13/1/15",
   "moduleType": [
     "es6"
   ],
   "keywords": [
-    "angularjs",
-    "javascript",
-    "nir kaufman",
-    "500Tech"
+    "angular",
+    "angularjs"
   ],
   "license": "MIT",
-  "homepage": "http://500tech.com/",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -24,11 +21,12 @@
     "tests"
   ],
   "dependencies": {
-    "ui-router": "0.2.13",
     "bootstrap": "3.3.1",
+    "angular": "1.3.8",
     "traceur-runtime": "0.0.79",
     "lodash": "2.4.1",
-    "angular": "1.3.8"
+    "angular-bootstrap": "0.12.0",
+    "ui-router": "0.2.13"
   },
   "resolutions": {
     "angular": "1.3.8"

@@ -14,12 +14,17 @@ class DigestController {
         this.panelVisiable = !this.panelVisiable;
     }
 
+    /**
+     * set options for the ng-model-options directive
+     * @returns {{debounce: {default: number, blur: number}, updateOn: string}}
+     */
     getModelOptions() {
         return {
             debounce: {"default": 400, blur: 200},
             updateOn: 'blur'
         }
     }
+
 
     countWatchers() {
         this.watchers = this.watcherCounter.count(this.scope);

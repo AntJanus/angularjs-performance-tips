@@ -36,7 +36,7 @@
                 </thead>
 
                 <tbody>
-                <tr ng-repeat="worker in repeater.workers">
+                <tr ng-repeat="worker in repeater.workers track by worker.username">
                     <td>{{ $index }}</td>
                     <td>{{ worker.name }}</td>
                     <td>{{ worker.phone }}</td>

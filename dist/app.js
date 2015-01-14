@@ -88,6 +88,7 @@ System.register("../src/utils/directives/heavy-lifting/heavy-lifting.directive",
       templateUrl: "utils/directives/heavy-lifting/heavy-lifting.tmpl.html",
       compile: function compilePhase() {
         $log.debug('heavyLiftingDirective compiled');
+        scope.data = FakeData.getFakeData(1000);
         return function linkPhase(scope) {
           $log.debug('heavyLiftingDirective linked');
         };
@@ -430,9 +431,9 @@ System.register("../src/repeater/repeater.controller", [], function() {
       this.workers = this.fakeData.getFakeData(1000);
     },
     getAsyncData: function() {
-      var $__30 = this;
+      var $__31 = this;
       this.fakeData.getFakeDataAsync(500).then((function(result) {
-        return $__30.asyncWorkers = result;
+        return $__31.asyncWorkers = result;
       }));
     },
     getFilterdData: function() {
@@ -510,10 +511,10 @@ System.register("../src/main.module", [], function() {
   var PlayGround = System.get("../src/playground/playground.module").default;
   var Repeater = System.get("../src/repeater/repeater.module").default;
   var Production = System.get("../src/production/production.module").default;
-  angular.module('main', ['ui.bootstrap', 'utils', 'digest', 'welcome', 'compile', 'playground', 'repeater']);
+  angular.module('main', ['ui.bootstrap', 'utils', 'digest', 'welcome', 'compile', 'playground', 'repeater', 'production']);
   angular.element(document).ready((function() {
     return angular.bootstrap(document, ['main']);
-  }));
+  }), {strictDi: true});
   return {};
 });
 System.get("../src/main.module" + '');

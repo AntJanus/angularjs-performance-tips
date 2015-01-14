@@ -16,11 +16,11 @@ angular.module('main', [
     'welcome',
     'compile',
     'playground',
-    'repeater'
-    //'production',
+    'repeater',
+    'production'
     //'templates'
 ]);
 
 
 angular.element(document)
-    .ready(() => angular.bootstrap(document, ['main']));
+    .ready(() => angular.bootstrap(document, ['main']),{strictDi:true});

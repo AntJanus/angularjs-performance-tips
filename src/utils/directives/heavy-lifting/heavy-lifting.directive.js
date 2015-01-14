@@ -12,8 +12,9 @@ function heavyLiftingDirective ($log, FakeData) {
         templateUrl: "utils/directives/heavy-lifting/heavy-lifting.tmpl.html",
         compile: function compilePhase () {
             $log.debug('heavyLiftingDirective compiled');
+            scope.data = FakeData.getFakeData(1000);
             return function linkPhase (scope) {
-                //scope.data = FakeData.getFakeData(1000);
+
                 $log.debug('heavyLiftingDirective linked');
             }
         }

@@ -45,12 +45,12 @@
             <div class="well-lg">
 
                 <!-- a panel widget that register watcher on the scope  -->
-                <div class="panel panel-primary">
-                    <div class="panel-heading" ng-click="digest.togglePanel()">I'm the panel heading!</div>
-                    <div class="panel-body" ng-show="digest.panelVisiable">
-                        <p>Should we really need to add watcher just to make this widget work?</p>
-                    </div>
-                </div>
+                <!--<div class="panel panel-primary">-->
+                    <!--<div class="panel-heading" ng-click="digest.togglePanel()">I'm the panel heading!</div>-->
+                    <!--<div class="panel-body" ng-show="digest.panelVisiable">-->
+                        <!--<p>Should we really need to add watcher just to make this widget work?</p>-->
+                    <!--</div>-->
+                <!--</div>-->
 
                 <!--<panel-widget></panel-widget>-->
 
@@ -75,6 +75,7 @@
         <tab heading="one-time binding">
             <div class="well well-lg">
 
+                <!-- use on-time-binding and look at watchers count -->
                 <ul class="list-unstyled" ng-repeat="person in digest.persons">
                     <li><h2>      {{ person.name }}</h2></li>
                     <li>username: {{ person.username }}</li>
